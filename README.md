@@ -23,57 +23,19 @@ _Подробнее про **режимы браузеров** вы можете
 
 ## Содержимое веб-страницы
 
+Содержимое веб-страницы заключено в `<html>` тег который в свою очередь является контейнером для всего содержимого страницы. Тег `<html>` включает в себя такие теги как `<head>` и `<body>`.
 
+**Что это за теги?**
 
+Тег `<head>` его цель заключаеться в том чтоб помогать браузеру в работе с данными. 
 
+Что я подразумеваю:
+* возможность указания заголовка страницы;
+* кодировку страницы;
+* имя автора документа;
+* описание страницы;
+* список ключевых слов, встречающихся на web-странице;
 
-## Счетчик просмотров
+и другое.
 
-```php
-    /**
-     * @return bool
-     * @throws \Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
-     */
-    public function processCountViewPost()
-    {
-        $session = Yii::$app->session;
-        // Если в сессии отсутствуют данные,
-        // создаём, увеличиваем счетчик, и записываем в бд
-        if (!isset($session['blog_post_view'])) {
-            $session->set('blog_post_view', [$this->id]);
-            $this->update(['view' => 1]);
-            // Если в сессии уже есть данные то проверяем засчитывался ли данный пост
-            // если нет то увеличиваем счетчик, записываем в бд и сохраняем в сессию просмотр этого поста
-        } else {
-            if (!ArrayHelper::isIn($this->id, $session['blog_post_view'])) {
-                $array = $session['blog_post_view'];
-                array_push($array, $this->id);
-                $session->remove('blog_post_view');
-                $session->set('blog_post_view', $array);
-                $this->updateCounters(['view' => 1]);
-            }
-        }
-        return true;
-    } 
-    
-    
-     /**
-     * @param $id
-     * @return string
-     * @throws NotFoundHttpException
-     * @throws \Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
-     */
-    public function actionView($id)
-    {
-        $model = $this->findModel($id);
-        $model->processCountViewPost();
-
-        return $this->render('view', [
-            'model' => $model,
-        ]);
-    }
-```
+> Содержимое `<head>` не отображается напрямую на веб-странице, за исключением элемента `<title>`, он задаёт заголовок окна веб-страницы.
