@@ -1,3 +1,12 @@
+## Usage
+
+In general, the use of this project is optional. So this is a monorepository and it includes other internal repositories.
+This repository includes templates for react js applications.
+
+Instructions for using templates for react js applications can be seen by going to the `packages` directory.
+Select the required template and its use will be described inside the template.
+The use of the template is the same in almost all cases.
+
 ## Support
 
 For problems, you can contact the `issue` section.
