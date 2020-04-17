@@ -1,3 +1,21 @@
+## Installation
+
+**If you do not want to leave your contribution to the project, then installing this repository is not required.**
+
+Copy your project and run one of the commands:
+
+### `npm install` or `yarn install`
+
+And you're done. **We also recommend that you read the documentation for the lerna package.**
+
+If you need to work with a specific package, go to its directory with the command.
+
+```sh
+cd packages/cra-template-... # Full package name.
+```
+
+
+
 ## Usage
 
 In general, the use of this project is optional. So this is a monorepository and it includes other internal repositories.
